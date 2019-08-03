@@ -1,5 +1,5 @@
 {% set name = "datefudge" %}
-{% set version = "1.22" %}
+{% set version = "1.23" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: http://deb.debian.org/debian/pool/main/d/datefudge/datefudge_{{ version }}.tar.xz
-  sha256: 2dc6e4f8808726339f1c7358f9874128031bd940baac396477ab297b5d7ef445
+  sha256: 3b7668a107145e9d3d47b10520ce623c1b6dc15f571050d6140c2356c1a2d645
   patches:
     - makefile.patch
 
 build:
-  number: 1000
+  number: 0
   skip: True  # [win or osx]
 
 requirements:
