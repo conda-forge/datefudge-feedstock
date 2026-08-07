@@ -1,0 +1,40 @@
+schema_version: 1
+
+context:
+  version: "1.27"
+
+package:
+  name: datefudge
+  version: ${{ version }}
+
+source:
+  url: https://deb.debian.org/debian/pool/main/d/datefudge/datefudge_${{ version }}.tar.xz
+  sha256: 0f7c0ca9bd2b0ef6aa01eaaf82e36b94b5424b6b70d49a8123478bf4cdfb2a2d
+  patches:
+    - 0001-Make-the-Makefile-portable.patch
+    - 0002-Support-gettimeofday-signatures.patch
+
+build:
+  number: 1
+  skip: win or osx
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - make
+
+tests:
+  - script:
+      - datefudge "2003-04-01 09:42" date
+
+about:
+  license: GPL-2.0-only
+  license_file: COPYING
+  summary: Fake the system date
+  homepage: https://packages.qa.debian.org/d/datefudge.html
+
+extra:
+  recipe-maintainers:
+    - scopatz
+    - xhochy
