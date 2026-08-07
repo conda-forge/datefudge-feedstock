@@ -12,8 +12,7 @@ source:
   sha256: 0f7c0ca9bd2b0ef6aa01eaaf82e36b94b5424b6b70d49a8123478bf4cdfb2a2d
   patches:
     - 0001-Make-the-Makefile-portable.patch
-    # https://salsa.debian.org/debian/datefudge/-/commit/508fc0f371a5b056c1b7c9379b3446eb60af774a
-    - 0002-Revert-glibc-2.31-patch.patch
+    - 0002-Support-gettimeofday-signatures.patch
 
 build:
   number: 1
